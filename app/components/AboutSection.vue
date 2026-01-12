@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <section class="py-8 px-4 max-w-5xl mx-auto">
+    <section id="about" class="py-8 px-4 max-w-5xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <UCard :ui="{ body: 'flex flex-col h-full' }" class="h-full">
                 <div class="flex flex-col h-full">
@@ -34,7 +34,7 @@
                             <UAvatar
                                 icon="i-lucide-graduation-cap"
                                 size="md"
-                                class="bg-white dark:bg-gray-900 text-teal-600 dark:text-teal-400 ring-1 ring-gray-200 dark:ring-gray-700"
+                                class="bg-white dark:bg-gray-900 text-purple-600 dark:text-purple-400 ring-1 ring-gray-200 dark:ring-gray-700"
                             />
                             <div>
                                 <h4
