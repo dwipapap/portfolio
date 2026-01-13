@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { addRef } = useScrollAnimation(0.1);
+
 const socialLinks = [
     {
         label: "WhatsApp",
@@ -23,7 +25,7 @@ const socialLinks = [
         id="home"
         class="flex flex-col items-center justify-center pt-32 pb-16 px-4 text-center"
     >
-        <div class="mb-8 relative group">
+        <div :ref="addRef" class="mb-8 relative group scroll-animate">
             <div
                 class="absolute -inset-1 bg-purple-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"
             />
@@ -36,26 +38,36 @@ const socialLinks = [
         </div>
 
         <h1
-            class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight"
+            :ref="addRef"
+            class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight scroll-animate"
+            :style="{ transitionDelay: '0.1s' }"
         >
             Hey, I'm Dwipa Amedihardjo
         </h1>
 
         <h2
-            class="text-xl md:text-2xl font-medium text-purple-600 dark:text-purple-400 mb-6"
+            :ref="addRef"
+            class="text-xl md:text-2xl font-medium text-purple-600 dark:text-purple-400 mb-6 scroll-animate"
+            :style="{ transitionDelay: '0.2s' }"
         >
             Frontend Engineer & IT Support
         </h2>
 
         <p
-            class="max-w-2xl text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed"
+            :ref="addRef"
+            class="max-w-2xl text-lg text-gray-600 dark:text-gray-300 mb-10 leading-relaxed scroll-animate"
+            :style="{ transitionDelay: '0.3s' }"
         >
             I build seamless digital experiences where design meets
             functionality. Bringing ideas to life through code and creative
             problem-solving.
         </p>
 
-        <div class="flex flex-col items-center gap-8">
+        <div
+            :ref="addRef"
+            class="flex flex-col items-center gap-8 scroll-animate"
+            :style="{ transitionDelay: '0.4s' }"
+        >
             <UButton
                 to="/CurriculumVitae.pdf"
                 icon="i-lucide-download"

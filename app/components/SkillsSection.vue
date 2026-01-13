@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { addRef } = useScrollAnimation();
+
 const skillCategories = [
     {
         name: "Proficient In",
@@ -64,16 +66,19 @@ const skillCategories = [
     <section id="skills" class="py-16 bg-gray-50/50 dark:bg-gray-900/50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2
-                class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white"
+                :ref="addRef"
+                class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white scroll-animate"
             >
                 Skill Set
             </h2>
 
             <div class="space-y-8">
                 <div
-                    v-for="category in skillCategories"
+                    v-for="(category, index) in skillCategories"
                     :key="category.name"
-                    class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8"
+                    :ref="addRef"
+                    class="flex flex-col md:flex-row md:items-start gap-4 md:gap-8 scroll-animate"
+                    :style="{ transitionDelay: `${index * 0.08}s` }"
                 >
                     <!-- Category Name -->
                     <div class="md:w-48 shrink-0">
@@ -96,8 +101,7 @@ const skillCategories = [
                             size="md"
                             class="rounded-full bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors duration-200"
                             :ui="{
-                                font: 'font-normal',
-                                padding: { md: 'px-4 py-2' },
+                                base: 'font-normal px-4 py-2',
                             }"
                         />
                     </div>

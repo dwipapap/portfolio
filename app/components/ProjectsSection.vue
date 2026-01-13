@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface Project {
     name: string;
+    subtitle?: string;
     description: string;
     image: string;
     year: string;
@@ -12,39 +13,45 @@ interface Project {
 const projects: Project[] = [
     {
         name: "ITTREnglish LMS",
+        subtitle: "Learning Management System",
         description:
-            "A Learning Management System (LMS) with three main areas: Student, Lecturer, and Admin portals.",
+            "A comprehensive Learning Management System designed to streamline educational processes. The platform features distinct portals for students, lecturers, and administrators, facilitating seamless communication and resource management.",
         image: "/projects/ittrenglish.png",
         year: "2025",
-        techStack: ["Vue"],
+        techStack: ["Vue.js", "Tailwind"],
         repoUrl: "https://github.com/dwipapap/cognivus-frontend",
     },
     {
-        name: "Jasmine Cake & Cookies",
+        name: "Jasmine Cake",
+        subtitle: "E-commerce Platform",
         description:
-            "A modern website for a cake and cookies business with product showcase and ordering information.",
+            "A modern, responsive e-commerce website built for a boutique bakery. Features include a dynamic product showcase, seamless ordering process, and an intuitive admin dashboard for inventory management.",
         image: "/projects/jasminecake.png",
         year: "2025",
-        techStack: ["Next.js", "TypeScript"],
+        techStack: ["Next.js", "TypeScript", "Tailwind"],
         repoUrl: "https://github.com/dwipapap/jasmine-cake-web",
         liveUrl: "https://jasminecakeandcookies.vercel.app",
     },
     {
         name: "PixelPocket",
+        subtitle: "Finance & Habit Tracker",
         description:
-            "A mobile app to track habits and expenses, helping users manage their daily routines and finances.",
+            "A mobile-first application focused on personal development and financial health. Users can track daily habits alongside expenses, visualizing correlations between lifestyle choices and spending patterns.",
         image: "/projects/kucingterbang.jpg",
         year: "2025",
-        techStack: ["Kotlin", "Android"],
+        techStack: ["Kotlin", "Android", "Room DB"],
         repoUrl: "https://github.com/dwipapap/PixelPocket",
     },
 ];
+
+const { addRef } = useScrollAnimation();
 </script>
 
 <template>
-    <section id="projects" class="py-24 sm:py-32">
+    <section id="projects" class="py-24 sm:py-32 overflow-hidden">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl text-center mb-16">
+            <!-- Section Header -->
+            <div class="mx-auto max-w-2xl text-center mb-20">
                 <h2
                     class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white"
                 >
@@ -53,93 +60,91 @@ const projects: Project[] = [
                 <p
                     class="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-400"
                 >
-                    A list of projects I've worked on
+                    Selected works and experiments
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projects Grid - 2 column layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
                 <div
-                    v-for="project in projects"
+                    v-for="(project, index) in projects"
                     :key="project.name"
-                    class="group relative flex flex-col overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-lg"
+                    :ref="addRef"
+                    class="flex flex-col scroll-animate"
+                    :style="{ transitionDelay: `${index * 0.1}s` }"
                 >
-                    <!-- Browser Header -->
-                    <div
-                        class="flex items-center gap-1.5 px-4 py-3 bg-gray-200/50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-800"
-                    >
-                        <div class="w-2.5 h-2.5 rounded-full bg-[#EF4444]" />
-                        <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]" />
-                        <div class="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
-                    </div>
-
-                    <!-- Image Area -->
-                    <div
-                        class="aspect-16/10 w-full overflow-hidden bg-gray-200 dark:bg-gray-800 relative group-hover:opacity-90 transition-opacity"
-                    >
-                        <NuxtImg
-                            :src="project.image"
-                            :alt="project.name"
-                            class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                            loading="lazy"
-                        />
-                    </div>
-
-                    <!-- Content Footer -->
-                    <div
-                        class="flex flex-col flex-1 p-5 backdrop-blur-sm bg-white/50 dark:bg-gray-900/50"
-                    >
-                        <div class="flex items-start justify-between mb-2">
-                            <div>
-                                <h3
-                                    class="font-bold text-gray-900 dark:text-white text-lg"
-                                >
-                                    {{ project.name }}
-                                </h3>
-                                <span
-                                    class="text-xs font-medium text-gray-500 dark:text-gray-400"
-                                >
-                                    {{ project.year }}
-                                </span>
-                            </div>
-
-                            <div class="flex gap-2">
-                                <UButton
-                                    v-if="project.liveUrl"
-                                    :to="project.liveUrl"
-                                    target="_blank"
-                                    icon="i-lucide-globe"
-                                    variant="ghost"
-                                    color="neutral"
-                                    size="xs"
-                                    aria-label="View live demo"
+                    <!-- Image Column -->
+                    <div class="relative group mb-6">
+                        <!-- Image Container -->
+                        <div
+                            class="relative rounded-xl overflow-hidden shadow-lg transition-transform duration-500 hover:-translate-y-1"
+                        >
+                            <div
+                                class="relative aspect-video w-full overflow-hidden bg-gray-200 dark:bg-gray-800"
+                            >
+                                <NuxtImg
+                                    :src="project.image"
+                                    :alt="project.name"
+                                    class="h-full w-full object-cover object-top"
+                                    loading="lazy"
                                 />
-                                <UButton
-                                    :to="project.repoUrl"
-                                    target="_blank"
-                                    icon="i-lucide-arrow-up-right"
-                                    variant="ghost"
-                                    color="neutral"
-                                    size="xs"
-                                    aria-label="View repository"
+
+                                <!-- Gradient Overlay for Badges -->
+                                <div
+                                    class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"
                                 />
+
+                                <!-- Tech Stack Badges -->
+                                <div
+                                    class="absolute bottom-4 left-4 flex flex-wrap gap-2"
+                                >
+                                    <UBadge
+                                        v-for="tech in project.techStack"
+                                        :key="tech"
+                                        color="neutral"
+                                        variant="solid"
+                                        class="backdrop-blur-md bg-black/50 text-white border-white/10"
+                                    >
+                                        {{ tech }}
+                                    </UBadge>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Text Column -->
+                    <div class="flex flex-col justify-center">
+                        <!-- Title & Subtitle -->
+                        <div class="flex flex-wrap items-baseline gap-x-3 mb-4">
+                            <h3
+                                class="text-2xl font-bold text-gray-900 dark:text-white"
+                            >
+                                {{ project.name }}
+                            </h3>
+                            <span
+                                v-if="project.subtitle"
+                                class="text-lg text-gray-500 dark:text-gray-400"
+                            >
+                                {{ project.subtitle }}
+                            </span>
+                        </div>
+
+                        <!-- Description -->
                         <p
-                            class="text-sm text-gray-600 dark:text-gray-300 line-clamp-3 mb-4 flex-1"
+                            class="text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-4"
                         >
                             {{ project.description }}
                         </p>
 
-                        <!-- Tech Stack -->
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span
-                                v-for="tech in project.techStack"
-                                :key="tech"
-                                class="inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-800 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-300 ring-1 ring-inset ring-gray-500/10"
+                        <!-- Action Link -->
+                        <div>
+                            <ULink
+                                :to="project.liveUrl || project.repoUrl"
+                                target="_blank"
+                                inactive-class="text-gray-900 dark:text-white font-medium border-b border-gray-900 dark:border-white hover:opacity-70 transition-opacity pb-0.5"
                             >
-                                {{ tech }}
-                            </span>
+                                see project
+                            </ULink>
                         </div>
                     </div>
                 </div>

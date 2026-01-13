@@ -1,9 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { addRef } = useScrollAnimation();
+</script>
 
 <template>
     <section id="about" class="py-8 px-4 max-w-5xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <UCard :ui="{ body: 'flex flex-col h-full' }" class="h-full">
+            <UCard
+                :ref="addRef"
+                :ui="{ body: 'flex flex-col h-full' }"
+                class="h-full scroll-animate"
+            >
                 <div class="flex flex-col h-full">
                     <div class="mb-8">
                         <h2
@@ -56,7 +62,11 @@
                 </div>
             </UCard>
 
-            <UCard class="relative h-full overflow-hidden">
+            <UCard
+                :ref="addRef"
+                class="relative h-full overflow-hidden scroll-animate"
+                :style="{ transitionDelay: '0.15s' }"
+            >
                 <div
                     class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-5 pointer-events-none"
                 >
