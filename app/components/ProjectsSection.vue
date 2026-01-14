@@ -101,7 +101,7 @@ const { addRef } = useScrollAnimation();
 
                                 <!-- Gradient Overlay for Badges -->
                                 <div
-                                    class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"
+                                    class="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/60 to-transparent pointer-events-none"
                                 />
 
                                 <!-- Tech Stack Badges -->
