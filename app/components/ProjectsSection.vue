@@ -42,6 +42,16 @@ const projects: Project[] = [
         techStack: ["Kotlin", "Android", "Room DB"],
         repoUrl: "https://github.com/dwipapap/PixelPocket",
     },
+    {
+        name: "Acacia Crassicarpa Genome Sequence",
+        subtitle: "Researcher",
+        description:
+            "Researching about Acacia Crassicarpa Genome, using NanoPlot for Quality Control, NextDenovo for Genome Assembly, and BUSCO for Gene Family Identification.",
+        image: "/projects/genome.jpg",
+        year: "2025",
+        techStack: ["Linux", "HPC", "Bash Script"],
+        repoUrl: "https://github.com/dwipapap/PixelPocket",
+    },
 ];
 
 const { addRef } = useScrollAnimation();
