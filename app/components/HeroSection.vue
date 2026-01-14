@@ -30,7 +30,7 @@ const socialLinks = [
                 class="absolute -inset-1 bg-purple-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000"
             />
             <UAvatar
-                src="/placeholder.webp"
+                src="/placeholder1.webp"
                 alt="Dwipa Amedihardjo"
                 size="3xl"
                 class="relative ring-4 ring-white dark:ring-gray-900"
