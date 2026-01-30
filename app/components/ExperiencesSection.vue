@@ -88,7 +88,7 @@ const { addRef } = useScrollAnimation();
                             </div>
                         </div>
                         <div
-                            class="mt-1 sm:mt-0 text-sm font-medium text-purple-700 dark:text-primary-400"
+                            class="mt-1 sm:mt-0 text-sm font-medium text-purple-700 dark:text-purple-400"
                         >
                             {{ job.dateRange }}
                         </div>
