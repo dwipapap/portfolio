@@ -48,7 +48,7 @@ const socialLinks = [
 
             <h2
                 :ref="addRef"
-                class="text-xl md:text-2xl font-medium text-purple-600 dark:text-purple-400 mb-6 scroll-animate"
+                class="text-xl md:text-2xl font-medium text-purple-700 dark:text-purple-400 mb-6 scroll-animate"
                 :style="{ transitionDelay: '0.2s' }"
             >
                 Frontend Engineer & IT Support

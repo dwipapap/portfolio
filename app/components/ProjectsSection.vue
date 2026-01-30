@@ -58,7 +58,7 @@ const { addRef } = useScrollAnimation();
 </script>
 
 <template>
-    <section id="projects" class="py-24 sm:py-32 overflow-hidden">
+    <section id="projects" class="py-16 overflow-hidden">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <!-- Section Header -->
             <div class="mx-auto max-w-2xl text-center mb-20">
