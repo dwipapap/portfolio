@@ -5,6 +5,7 @@
             <HeroSection />
             <AboutSection />
             <SkillsSection />
+            <ExperiencesSection />
             <ProjectsSection />
         </main>
     </UApp>
