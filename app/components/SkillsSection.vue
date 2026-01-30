@@ -63,7 +63,7 @@ const skillCategories = [
 </script>
 
 <template>
-    <section id="skills" class="py-16 bg-gray-50/50 dark:bg-gray-900/50">
+    <section id="skills" class="py-16">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2
                 :ref="addRef"
