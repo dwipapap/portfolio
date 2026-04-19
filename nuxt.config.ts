@@ -9,5 +9,10 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/ui'
-  ]
+  ],
+  vite: {
+    optimizeDeps: {
+      exclude: ['@nuxt/hints', '#shared/hints-config']
+    }
+  }
 })
