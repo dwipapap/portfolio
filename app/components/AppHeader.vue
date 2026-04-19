@@ -57,11 +57,11 @@ onMounted(() => {
 
 <template>
     <!-- Desktop Header: floating pill design -->
-    <header class="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <header class="hidden md:block fixed top-1/2 -translate-y-1/2 left-6 z-50">
         <nav
-            class="inline-flex items-center bg-white dark:bg-gray-900 rounded-full px-4 py-2.5 shadow-xl border border-gray-200 dark:border-gray-700"
+            class="inline-flex flex-col items-center bg-white dark:bg-gray-900 rounded-full px-2.5 py-4 shadow-xl border border-gray-200 dark:border-gray-700"
         >
-            <div class="flex items-center gap-1">
+            <div class="flex flex-col items-center gap-2">
                 <UButton
                     v-for="item in navItems"
                     :key="item.label"
@@ -85,12 +85,12 @@ onMounted(() => {
                     size="xl"
                     color="neutral"
                     variant="ghost"
-                    class="ml-6"
+                    class="mt-6"
                     aria-label="Toggle color mode"
                     @click="isDark = !isDark"
                 />
                 <template #fallback>
-                    <div class="size-10 ml-6" />
+                    <div class="size-10 mt-6" />
                 </template>
             </ClientOnly>
         </nav>
