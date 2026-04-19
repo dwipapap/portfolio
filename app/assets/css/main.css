@@ -84,3 +84,8 @@
     opacity: 1;
     transform: scale(1);
 }
+
+/* Hide stray Nuxt Loading Indicator line */
+#nuxt-loading-indicator, .nuxt-loading-indicator {
+    display: none !important;
+}

@@ -13,6 +13,7 @@ const isDark = computed({
 const navItems = [
     { icon: "i-lucide-home", label: "Home", href: "#home" },
     { icon: "i-lucide-user", label: "About", href: "#about" },
+    { icon: "i-lucide-layers", label: "Services", href: "#services" },
     { icon: "i-lucide-wrench", label: "Skills", href: "#skills" },
     { icon: "i-lucide-briefcase", label: "Experience", href: "#experience" },
     { icon: "i-lucide-folder", label: "Projects", href: "#projects" },
