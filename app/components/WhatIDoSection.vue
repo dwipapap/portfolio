@@ -73,7 +73,7 @@ const services: Service[] = [
                 the scenes.
             </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <UCard v-for="(service, index) in services" :key="service.title" :ref="addRef"
                     class="scroll-animate"
                     :style="{ transitionDelay: `${index * 0.07}s` }" :ui="{ body: 'p-4 sm:p-5' }">
