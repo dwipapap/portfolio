@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+@theme {
+  --color-purple-400: #bba0ca;
+  --color-purple-500: #bba0ca;
+  --color-purple-600: #bba0ca;
+  --color-purple-700: #bba0ca;
+}
+
 :root {
   --bg-color: #f8fafc;
   --text-color: #0f172a; 
