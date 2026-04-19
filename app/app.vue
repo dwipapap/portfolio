@@ -20,5 +20,6 @@ useSeoMeta({
             <ExperiencesSection />
             <ProjectsSection />
         </main>
+        <FloatingActionButton />
     </UApp>
 </template>
