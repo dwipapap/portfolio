@@ -26,3 +26,4 @@ logs
 #Misc
 AGENTS.md
 .sisyphus
+package-lock.json
