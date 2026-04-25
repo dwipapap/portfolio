@@ -19,6 +19,9 @@ const props = defineProps({
 const isMounted = ref(false)
 const imageError = ref(false)
 
+/* Use the global pomodoro store to control slideover */
+const { openSlideover } = usePomodoro()
+
 onMounted(() => {
   isMounted.value = true
 })
@@ -49,6 +52,33 @@ const handleClick = () => {
 const onImageError = () => {
   imageError.value = true
 }
+
+const openPomodoro = () => {
+  openSlideover()
+}
+
+// Widget items for the popover menu
+const widgets = [
+  {
+    label: 'Pomodoro Timer',
+    icon: 'i-lucide-timer',
+    description: 'Focus & break timer',
+    action: openPomodoro,
+    iconClass: 'text-purple-600 dark:text-purple-400'
+  },
+  {
+    label: 'Daily Tasks',
+    icon: 'i-lucide-list-todo',
+    action: () => {},
+    iconClass: 'text-gray-600 dark:text-gray-400'
+  },
+  {
+    label: 'Quick Notes',
+    icon: 'i-lucide-sticky-note',
+    action: () => {},
+    iconClass: 'text-gray-600 dark:text-gray-400'
+  }
+]
 </script>
 
 <template>
@@ -63,7 +93,10 @@ const onImageError = () => {
       leave-to-class="opacity-0 scale-50 translate-y-4"
     >
       <div v-if="isMounted">
-        <UPopover mode="click" :popper="{ placement: 'top-end', offsetDistance: 12 }">
+        <UPopover
+          arrow
+          :content="{ side: 'top', align: 'end', sideOffset: 12 }"
+        >
           <template #default="{ open }">
             <button
               v-if="!imageError"
@@ -89,25 +122,48 @@ const onImageError = () => {
               color="primary"
               variant="solid"
               class="w-[56px] h-[56px] md:w-[96px] md:h-[96px] flex items-center justify-center rounded-full shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-105"
-              :ui="{ rounded: 'rounded-full' }"
               @click="handleClick"
             />
           </template>
 
-          <template #panel>
-            <div class="p-4 w-64 sm:w-72">
-              <slot>
-                <div class="space-y-4">
-                  <div class="font-bold text-lg border-b border-gray-200 dark:border-gray-700 pb-2 text-gray-900 dark:text-white">
-                    Quick Actions
-                  </div>
-                  <div class="flex flex-col gap-1">
-                    <UButton color="gray" variant="ghost" icon="i-heroicons-document-text" class="w-full justify-start text-left">View Resume</UButton>
-                    <UButton color="gray" variant="ghost" icon="i-heroicons-envelope" class="w-full justify-start text-left">Contact Me</UButton>
-                    <UButton color="gray" variant="ghost" icon="i-heroicons-link" class="w-full justify-start text-left">Copy Link</UButton>
-                  </div>
+          <template #content>
+            <div class="p-3 w-64 sm:w-72">
+              <div class="space-y-3">
+                <!-- Header -->
+                <div class="flex items-center gap-2 px-1 pb-2 border-b border-gray-200 dark:border-gray-700/60">
+                  <UIcon name="i-lucide-layout-grid" class="w-5 h-5 text-gray-500 dark:text-gray-400" />
+                  <span class="font-semibold text-base text-gray-900 dark:text-white">Widgets</span>
                 </div>
-              </slot>
+
+                <!-- Widget List -->
+                <div class="flex flex-col gap-0.5">
+                  <button
+                    v-for="widget in widgets"
+                    :key="widget.label"
+                    class="group flex items-center gap-3 w-full px-2.5 py-2.5 rounded-lg text-left transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/60 cursor-pointer"
+                    @click="widget.action"
+                  >
+                    <div 
+                      class="flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-200 group-hover:scale-110"
+                      :class="widget.iconClass"
+                    >
+                      <UIcon :name="widget.icon" class="w-5 h-5" />
+                    </div>
+                    <div class="flex flex-col min-w-0">
+                      <span class="text-sm font-medium text-gray-900 dark:text-white">
+                        {{ widget.label }}
+                      </span>
+                      <span v-if="widget.description" class="text-xs text-gray-500 dark:text-gray-400 truncate">
+                        {{ widget.description }}
+                      </span>
+                    </div>
+                    <UIcon 
+                      name="i-lucide-chevron-right" 
+                      class="w-4 h-4 ml-auto text-gray-400 dark:text-gray-500 transition-transform duration-200 group-hover:translate-x-0.5"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
           </template>
         </UPopover>

@@ -21,5 +21,7 @@ useSeoMeta({
             <ProjectsSection />
         </main>
         <FloatingActionButton />
+        <PomodoroSlideover />
+        <PomodoroIsland />
     </UApp>
 </template>
