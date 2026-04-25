@@ -61,7 +61,6 @@ function onSlideoverUpdate(val: boolean) {
 <template>
   <USlideover :open="isOpen" side="right" :overlay="false" :dismissible="false" :ui="{
     content: 'rounded-2xl m-3 max-h-[calc(100vh-1.5rem)] bg-white/60 dark:bg-gray-900/60 backdrop-blur-2xl border border-white/30 dark:border-white/10 shadow-xl',
-    header: 'border-b-0',
   }" @update:open="onSlideoverUpdate">
     <!-- Empty default so we drive open state programmatically -->
     <template #default />
@@ -71,7 +70,6 @@ function onSlideoverUpdate(val: boolean) {
       <div class="flex items-center justify-between w-full px-1">
         <div class="flex items-center gap-2.5">
         </div>
-
         <div class="flex items-center gap-1">
           <!-- Minimize button -->
           <UButton icon="i-lucide-minus" size="sm" color="neutral" variant="ghost" class="rounded-xl"
