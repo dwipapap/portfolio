@@ -94,22 +94,22 @@ onMounted(() => {
     <header
         class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-100 w-max max-w-[95vw] pb-[max(0px,env(safe-area-inset-bottom))]">
         <nav
-            class="flex items-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-full px-2 py-1 shadow-xl border border-gray-200 dark:border-gray-700 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            <div class="flex items-center gap-0.5 sm:gap-1">
-                <UButton v-for="item in navItems" :key="item.label" :icon="item.icon" size="md" variant="ghost"
+            class="flex items-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-xl border border-gray-200 dark:border-gray-700 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div class="flex items-center gap-1 sm:gap-1.5">
+                <UButton v-for="item in navItems" :key="item.label" :icon="item.icon" size="lg" variant="ghost"
                     color="neutral" class="shrink-0" :class="activeSection === item.href.replace('#', '')
                             ? 'text-purple-700'
                             : ''
                         " :aria-label="item.label" @click="handleNavClick(item)" />
             </div>
 
-            <div class="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-1 sm:mx-1.5 shrink-0"></div>
+            <div class="w-px h-6 bg-gray-200 dark:bg-gray-700 mx-2 sm:mx-2.5 shrink-0"></div>
 
             <ClientOnly>
-                <UButton :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'" size="md" color="neutral" variant="ghost"
+                <UButton :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'" size="lg" color="neutral" variant="ghost"
                     class="shrink-0" aria-label="Toggle color mode" @click="isDark = !isDark" />
                 <template #fallback>
-                    <div class="size-6 shrink-0" />
+                    <div class="size-8 shrink-0" />
                 </template>
             </ClientOnly>
         </nav>
