@@ -93,9 +93,8 @@ function handleWheel(e: WheelEvent) {
                 </p>
 
                 <!-- Big Button -->
-                <UButton size="xl" variant="solid"
-                    class="px-8 py-4 text-lg rounded-full bg-purple-700 hover:bg-purple-700 text-white shadow-lg"
-                    @click="projectsDirection = 'bottom'; isProjectsOpen = true">
+                <UButton icon="i-lucide-rocket" color="neutral" variant="solid" size="xl"
+                    class="px-6 rounded-full shadow-sm" @click="projectsDirection = 'bottom'; isProjectsOpen = true">
                     What I've made
                 </UButton>
             </div>
@@ -104,7 +103,7 @@ function handleWheel(e: WheelEvent) {
         <UDrawer v-model:open="isProjectsOpen" :direction="projectsDirection" :handle="true" title="My Projects"
             description="A collection of my recent work and experiments." class="z-100">
             <template #body>
-                <div class="flex flex-col md:flex-row gap-4 md:gap-5 h-full max-h-[75vh] md:max-h-[60vh] overflow-y-auto md:overflow-y-hidden md:overflow-x-auto p-4 md:px-6 md:py-4 snap-y md:snap-x snap-mandatory scroll-smooth items-stretch [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                <div class="flex flex-col md:flex-row gap-4 md:gap-5 h-full max-h-[75vh] md:max-h-[60vh] overflow-y-auto md:overflow-y-hidden md:overflow-x-auto p-4 md:px-6 md:py-4 snap-y md:snap-x snap-mandatory items-stretch overscroll-contain will-change-transform [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     @wheel="handleWheel">
                     <div v-for="(project, index) in projects" :key="project.name"
                         class="flex flex-col shrink-0 w-full md:w-[320px] snap-start bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-4 md:p-4 border border-gray-100 dark:border-gray-800 h-full">
@@ -123,7 +122,7 @@ function handleWheel(e: WheelEvent) {
                                     <div class="absolute bottom-2 left-2 flex flex-wrap gap-1">
                                         <UBadge v-for="tech in project.techStack" :key="tech" color="neutral"
                                             variant="solid" size="sm"
-                                            class="backdrop-blur-md bg-black/60 text-white border-white/10">
+                                            class="md:backdrop-blur-md bg-black/60 text-white border-white/10">
                                             {{ tech }}
                                         </UBadge>
                                     </div>
