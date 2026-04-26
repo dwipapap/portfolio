@@ -52,6 +52,16 @@ const projects: Project[] = [
         techStack: ["Linux", "HPC", "Bash Script"],
         repoUrl: "https://github.com/dwipapap/PixelPocket",
     },
+    {
+        name: "Pomodoro Timer",
+        subtitle: "Pomodoro Timer Widget",
+        description: "A Pomodoro Timer widget that can be used for your daily habit on working something. It has two mode, work mode and break mode.",
+        image: "/projects/pomodoro.png",
+        year: "2026",
+        techStack: ["Vue.js", "NuxtUI"],
+        repoUrl: "",
+    }
+
 ];
 
 const { addRef } = useScrollAnimation();

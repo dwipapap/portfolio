@@ -17,6 +17,11 @@ const socialLinks = [
         icon: "i-simple-icons-github",
         to: "https://github.com/dwipapap",
     },
+    {
+        label: "Email",
+        icon: "i-lucide-mail",
+        to: "mailto:dwipahyaki@gmail.com",
+    }
 ];
 </script>
 
@@ -40,9 +45,10 @@ const socialLinks = [
                 <p :ref="addRef"
                     class="text-lg text-gray-600 dark:text-gray-400 mb-10 max-w-lg leading-relaxed scroll-animate"
                     :style="{ transitionDelay: '0.3s' }">
-                    I build seamless digital experiences where design meets
-                    functionality. Bringing ideas to life through code and creative
-                    problem-solving.
+                    Frontend Engineer by craft.
+                    IT Consultant by strategy.
+                    IT Support by dedication.
+                    Building, advising, and sustaining the future me, myself, and you
                 </p>
 
                 <div :ref="addRef"
