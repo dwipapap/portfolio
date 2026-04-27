@@ -60,6 +60,15 @@ const projects: Project[] = [
         year: "2026",
         techStack: ["Vue.js", "NuxtUI"],
         repoUrl: "",
+    },
+    {
+        name: "Nota PO Excel",
+        subtitle: "Excel Macro for PO",
+        description: "Nota PO menggunakan Excel menggunakan VBA macro.",
+        image: "/projects/macroexcels.png",
+        year: "2026",
+        techStack: ["Excel", "VBA"],
+        repoUrl: "",
     }
 
 ];
