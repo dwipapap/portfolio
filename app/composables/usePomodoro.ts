@@ -16,8 +16,9 @@ const DURATIONS: Record<PomodoroMode, number> = {
   longBreak: 15 * 60,
 }
 
-/* ── Module-level interval handle (client only) ──────────── */
+/* ── Module-level interval handle & guards ──────────────── */
 let _intervalId: ReturnType<typeof setInterval> | null = null
+let _useHeadInstalled = false
 
 export function usePomodoro() {
   /* ── Global reactive state via useState ────────────────── */
@@ -93,11 +94,15 @@ export function usePomodoro() {
     return originalTitle
   })
 
-  useHead({ title: pageTitle })
+  if (!_useHeadInstalled) {
+    useHead({ title: pageTitle })
+    _useHeadInstalled = true
+  }
 
   /* ── Dynamic favicon (client only) ──────────────────── */
   if (!import.meta.server) {
     let _originalFavicon: string | null = null
+    let _lastMinutes = ''
 
     function _updateFavicon(time: string, running: boolean, color: string) {
       const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
@@ -107,8 +112,13 @@ export function usePomodoro() {
         if (_originalFavicon !== null) {
           link.href = _originalFavicon
         }
+        _lastMinutes = ''
         return
       }
+
+      const minutes = time.split(':')[0] ?? '0'
+      if (minutes === _lastMinutes) return
+      _lastMinutes = minutes
 
       if (_originalFavicon === null) {
         _originalFavicon = link.href
@@ -125,7 +135,6 @@ export function usePomodoro() {
       ctx.fillStyle = color
       ctx.fill()
 
-      const minutes = time.split(':')[0]
       ctx.fillStyle = '#ffffff'
       ctx.font = 'bold 26px system-ui, sans-serif'
       ctx.textAlign = 'center'
@@ -173,8 +182,8 @@ export function usePomodoro() {
         osc2.start()
         osc2.stop(ctx.currentTime + 0.25)
       }, 200)
-    } catch {
-      // silent fail
+    } catch (e) {
+      console.warn('[Pomodoro] AudioContext error:', e)
     }
   }
 
@@ -225,7 +234,7 @@ export function usePomodoro() {
   }
 
   function toggleTimer() {
-    isRunning.value ? pauseTimer() : startTimer()
+    if (isRunning.value) { pauseTimer() } else { startTimer() }
   }
 
   function resetTimer() {
