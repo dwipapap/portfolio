@@ -12,41 +12,41 @@ const skillCategories = [
     {
         name: "Programming Languages",
         skills: [
-            { name: "HTML5", icon: "i-simple-icons-html5" },
-            { name: "CSS3", icon: "i-simple-icons-css3" },
-            { name: "JavaScript", icon: "i-simple-icons-javascript" },
-            { name: "Kotlin", icon: "i-simple-icons-kotlin" },
-            { name: "Bash", icon: "i-lucide-terminal" },
+            { name: "HTML5", icon: "i-logos-html-5" },
+            { name: "CSS3", icon: "i-logos-css" },
+            { name: "JavaScript", icon: "i-logos-javascript" },
+            { name: "Kotlin", icon: "i-logos-kotlin-icon" },
+            { name: "Bash", icon: "i-logos-bash-icon" },
         ],
     },
     {
         name: "Frameworks",
         skills: [
-            { name: "Vue.js", icon: "i-simple-icons-vuedotjs" },
-            { name: "Next.js", icon: "i-simple-icons-nextdotjs" },
-            { name: "Tailwind CSS", icon: "i-simple-icons-tailwindcss" },
+            { name: "Vue.js", icon: "i-logos-vue" },
+            { name: "Next.js", icon: "i-logos-nextjs-icon" },
+            { name: "Tailwind CSS", icon: "i-logos-tailwindcss-icon" },
         ],
     },
     {
         name: "Collaboration Tools",
         skills: [
-            { name: "GitHub", icon: "i-simple-icons-github" },
-            { name: "Figma", icon: "i-simple-icons-figma" },
-            { name: "Canva", icon: "i-simple-icons-canva" },
+            { name: "GitHub", icon: "i-logos-github-icon" },
+            { name: "Figma", icon: "i-logos-figma" },
+            { name: "Canva", icon: "i-devicon-canva" },
         ],
     },
     {
         name: "Linux & Infrastructure",
         skills: [
-            { name: "Linux CLI", icon: "i-simple-icons-linux" },
-            { name: "Bash Scripting", icon: "i-lucide-terminal" },
+            { name: "Linux CLI", icon: "i-logos-linux-tux" },
+            { name: "Bash Scripting", icon: "i-logos-bash-icon" },
             { name: "HPC", icon: "i-lucide-server" },
         ],
     },
     {
         name: "General",
         skills: [
-            { name: "Git", icon: "i-simple-icons-git" },
+            { name: "Git", icon: "i-logos-git-icon" },
             { name: "Data Analysis", icon: "i-lucide-bar-chart-3" },
             { name: "Hardware Troubleshooting", icon: "i-lucide-wrench" },
         ],
