@@ -68,7 +68,7 @@ const socialLinks = [
             </div>
 
             <div :ref="addRef" class="shrink-0 relative scroll-animate" :style="{ transitionDelay: '0.1s' }">
-                <img src="/placeholder1.webp" alt="Dwipa Amedihardjo"
+                <img src="/foto.png" alt="Dwipa Amedihardjo"
                     class="w-48 h-48 md:w-72 md:h-72 shadow-2xl ring-1 ring-gray-200 dark:ring-gray-800 rounded-full object-cover">
             </div>
         </div>
