@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     '@nuxt/hints',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@vercel/analytics'
   ],
   vite: {
     optimizeDeps: {
