@@ -27,7 +27,8 @@ const { addRef } = useScrollAnimation();
 
                         <div
                             class="flex items-center gap-4 p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800">
-                            <UAvatar icon="i-lucide-graduation-cap" size="md"
+                            <UAvatar
+icon="i-lucide-graduation-cap" size="md"
                                 class="bg-white dark:bg-gray-900 text-purple-600 dark:text-purple-400 ring-1 ring-gray-200 dark:ring-gray-700" />
                             <div>
                                 <h4 class="font-semibold text-gray-900 dark:text-white text-sm md:text-base">
@@ -45,7 +46,8 @@ const { addRef } = useScrollAnimation();
                 </div>
             </UCard>
 
-            <UCard :ref="addRef" class="relative h-full overflow-hidden scroll-animate"
+            <UCard
+:ref="addRef" class="relative h-full overflow-hidden scroll-animate"
                 :style="{ transitionDelay: '0.15s' }">
                 <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-5 pointer-events-none">
                     <svg width="120" height="120" fill="none" viewBox="0 0 120 120">

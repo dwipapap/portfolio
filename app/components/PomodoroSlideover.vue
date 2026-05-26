@@ -6,9 +6,7 @@ const {
   isOpen,
   progress,
   formattedTime,
-  modeLabel,
   modeColor,
-  modeIcon,
   toggleTimer,
   resetTimer,
   setMode,
@@ -42,7 +40,8 @@ function onSlideoverUpdate(val: boolean) {
 </script>
 
 <template>
-  <USlideover :open="isOpen" side="right" :overlay="false" :dismissible="false" :ui="{
+  <USlideover
+:open="isOpen" side="right" :overlay="false" :dismissible="false" :ui="{
     content: 'rounded-2xl m-3 max-h-[calc(100vh-1.5rem)] bg-white/60 dark:bg-gray-900/60 backdrop-blur-2xl border border-white/30 dark:border-white/10 shadow-xl',
   }" @update:open="onSlideoverUpdate">
     <!-- Empty default so we drive open state programmatically -->
@@ -51,11 +50,11 @@ function onSlideoverUpdate(val: boolean) {
     <!-- Custom header -->
     <template #header>
       <div class="flex items-center justify-between w-full px-1">
-        <div class="flex items-center gap-2.5">
-        </div>
+        <div class="flex items-center gap-2.5"/>
         <div class="flex items-center gap-1">
           <!-- Minimize button -->
-          <UButton icon="i-lucide-minus" size="sm" color="neutral" variant="ghost" class="rounded-xl"
+          <UButton
+icon="i-lucide-minus" size="sm" color="neutral" variant="ghost" class="rounded-xl"
             @click="minimize" />
         </div>
       </div>
@@ -67,33 +66,40 @@ function onSlideoverUpdate(val: boolean) {
 
         <!-- ─── Top Controls ─────────────────────────── -->
         <div class="flex items-center gap-2">
-          <UButton :icon="isRunning ? 'i-lucide-pause' : 'i-lucide-play'" size="lg" color="neutral" variant="soft"
+          <UButton
+:icon="isRunning ? 'i-lucide-pause' : 'i-lucide-play'" size="lg" color="neutral" variant="soft"
             class="rounded-xl" @click="toggleTimer" />
-          <UButton icon="i-lucide-rotate-ccw" size="lg" color="neutral" variant="soft" class="rounded-xl"
+          <UButton
+icon="i-lucide-rotate-ccw" size="lg" color="neutral" variant="soft" class="rounded-xl"
             @click="resetTimer" />
-          <UButton icon="i-lucide-skip-forward" size="lg" color="neutral" variant="soft" class="rounded-xl"
+          <UButton
+icon="i-lucide-skip-forward" size="lg" color="neutral" variant="soft" class="rounded-xl"
             @click="skipToNext" />
         </div>
 
         <!-- ─── Circular Timer ───────────────────────── -->
         <div class="relative w-60 h-60 flex items-center justify-center">
           <!-- Glow -->
-          <div class="absolute inset-6 rounded-full blur-2xl opacity-25 transition-colors duration-500"
+          <div
+class="absolute inset-6 rounded-full blur-2xl opacity-25 transition-colors duration-500"
             :style="{ backgroundColor: modeColor }" />
 
           <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 200 200">
             <!-- Track -->
-            <circle cx="100" cy="100" :r="circleRadius" fill="none" stroke-width="5"
+            <circle
+cx="100" cy="100" :r="circleRadius" fill="none" stroke-width="5"
               class="stroke-gray-200/60 dark:stroke-gray-700/40" />
             <!-- Progress -->
-            <circle cx="100" cy="100" :r="circleRadius" fill="none" stroke-width="5" stroke-linecap="round"
+            <circle
+cx="100" cy="100" :r="circleRadius" fill="none" stroke-width="5" stroke-linecap="round"
               :stroke="modeColor" :stroke-dasharray="circumference" :stroke-dashoffset="dashOffset"
               class="transition-[stroke-dashoffset] duration-1000 ease-linear" />
           </svg>
 
           <!-- Time text -->
           <div class="relative z-10 flex flex-col items-center select-none">
-            <span class="text-6xl font-bold tracking-tight text-gray-900 dark:text-white"
+            <span
+class="text-6xl font-bold tracking-tight text-gray-900 dark:text-white"
               style="font-variant-numeric: tabular-nums">
               {{ formattedTime }}
             </span>
@@ -109,7 +115,8 @@ function onSlideoverUpdate(val: boolean) {
             Cycle {{ filledDots }} / 4
           </span>
           <div class="flex items-center gap-2">
-            <div v-for="i in 4" :key="i" class="w-3 h-3 rounded-full transition-all duration-500" :style="{
+            <div
+v-for="i in 4" :key="i" class="w-3 h-3 rounded-full transition-all duration-500" :style="{
               backgroundColor: i <= filledDots ? modeColor : undefined,
               boxShadow: i <= filledDots ? `0 0 8px ${modeColor}60` : 'none',
             }" :class="{
@@ -121,7 +128,8 @@ function onSlideoverUpdate(val: boolean) {
 
         <!-- ─── Mode Toggles ─────────────────────────── -->
         <div class="flex items-center gap-1 p-1 rounded-2xl bg-gray-100/70 dark:bg-gray-800/50 w-full max-w-xs">
-          <button v-for="m in modes" :key="m.key"
+          <button
+v-for="m in modes" :key="m.key"
             class="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer"
             :class="currentMode === m.key
               ? 'bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white'
@@ -133,7 +141,8 @@ function onSlideoverUpdate(val: boolean) {
         </div>
 
         <!-- ─── Full Reset ────────────────────────────── -->
-        <UButton v-if="cycleCount > 0 || currentMode !== 'pomodoro'" label="Reset All" icon="i-lucide-refresh-ccw"
+        <UButton
+v-if="cycleCount > 0 || currentMode !== 'pomodoro'" label="Reset All" icon="i-lucide-refresh-ccw"
           size="xs" color="neutral" variant="link" class="opacity-60 hover:opacity-100" @click="fullReset" />
       </div>
     </template>

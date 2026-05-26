@@ -12,7 +12,7 @@ const experiences: Experience[] = [
         company: "Genomic and High Performance Computing Researcher",
         location: "Pekanbaru",
         title: "Researcher",
-        dateRange: "Jan 2026 - April 2026",
+        dateRange: "Jan 2026 - Apr 2026",
         responsibilities: [
             "Implemented and analyzed the genome assembly pipeline for the Acacia crassicarpa species utilizing the Mahameru High Performance Computing (HPC) infrastructure.",
             "Managed and optimized large-scale computational job scheduling via the SLURM Job Scheduler to ensure efficient resource allocation on the HPC cluster.",
@@ -85,9 +85,10 @@ const { addRef } = useScrollAnimation();
                         {{ item.location }}
                     </div>
                     <ul class="space-y-1.5 text-gray-600 dark:text-gray-400 mt-2">
-                        <li v-for="(resp, rIndex) in item.responsibilities" :key="rIndex" 
+                        <li
+v-for="(resp, rIndex) in item.responsibilities" :key="rIndex" 
                             class="flex items-start gap-2.5">
-                            <span class="mt-2 size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 shrink-0"></span>
+                            <span class="mt-2 size-1.5 rounded-full bg-gray-400 dark:bg-gray-500 shrink-0"/>
                             <span class="text-left leading-relaxed">{{ resp }}</span>
                         </li>
                     </ul>

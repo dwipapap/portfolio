@@ -66,7 +66,8 @@ const services: Service[] = [
                 What I Do
             </h2>
 
-            <p :ref="addRef" class="text-center text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-12 scroll-animate"
+            <p
+:ref="addRef" class="text-center text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-12 scroll-animate"
                 :style="{ transitionDelay: '0.05s' }">
                 I work at the intersection of development and infrastructure,
                 making sure things not only look great but run smoothly behind
@@ -74,7 +75,8 @@ const services: Service[] = [
             </p>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <UCard v-for="(service, index) in services" :key="service.title" :ref="addRef"
+                <UCard
+v-for="(service, index) in services" :key="service.title" :ref="addRef"
                     class="scroll-animate"
                     :style="{ transitionDelay: `${index * 0.07}s` }" :ui="{ body: 'p-4 sm:p-5' }">
                     <div
