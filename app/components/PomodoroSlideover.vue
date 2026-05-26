@@ -7,6 +7,8 @@ const {
   progress,
   formattedTime,
   modeLabel,
+  modeColor,
+  modeIcon,
   toggleTimer,
   resetTimer,
   setMode,
@@ -20,25 +22,6 @@ const {
 const circleRadius = 90
 const circumference = 2 * Math.PI * circleRadius
 const dashOffset = computed(() => circumference * (1 - progress.value))
-
-/* ── Mode-dependent accent colour ─────────────────────── */
-const modeColor = computed(() => {
-  switch (currentMode.value) {
-    case 'pomodoro': return '#bba0ca'
-    case 'shortBreak': return '#6ee7b7'
-    case 'longBreak': return '#93c5fd'
-    default: return '#bba0ca'
-  }
-})
-
-const modeIcon = computed(() => {
-  switch (currentMode.value) {
-    case 'pomodoro': return 'i-lucide-brain'
-    case 'shortBreak': return 'i-lucide-coffee'
-    case 'longBreak': return 'i-lucide-moon'
-    default: return 'i-lucide-brain'
-  }
-})
 
 /* ── Modes for bottom toggles ─────────────────────────── */
 const modes = [

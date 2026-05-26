@@ -65,6 +65,81 @@ export function usePomodoro() {
     }
   })
 
+  const modeColor = computed(() => {
+    switch (currentMode.value) {
+      case 'pomodoro': return '#bba0ca'
+      case 'shortBreak': return '#6ee7b7'
+      case 'longBreak': return '#93c5fd'
+      default: return '#bba0ca'
+    }
+  })
+
+  const modeIcon = computed(() => {
+    switch (currentMode.value) {
+      case 'pomodoro': return 'i-lucide-brain'
+      case 'shortBreak': return 'i-lucide-coffee'
+      case 'longBreak': return 'i-lucide-moon'
+      default: return 'i-lucide-brain'
+    }
+  })
+
+  /* ── Document title (SSR-safe via useHead) ──────────── */
+  const originalTitle = 'Dwipa Amedihardjo - Frontend Engineer & IT Support'
+
+  const pageTitle = computed(() => {
+    if (isRunning.value) {
+      return `(${formattedTime.value}) ${modeLabel.value} — ${originalTitle}`
+    }
+    return originalTitle
+  })
+
+  useHead({ title: pageTitle })
+
+  /* ── Dynamic favicon (client only) ──────────────────── */
+  if (!import.meta.server) {
+    let _originalFavicon: string | null = null
+
+    function _updateFavicon(time: string, running: boolean, color: string) {
+      const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
+      if (!link) return
+
+      if (!running) {
+        if (_originalFavicon !== null) {
+          link.href = _originalFavicon
+        }
+        return
+      }
+
+      if (_originalFavicon === null) {
+        _originalFavicon = link.href
+      }
+
+      const canvas = document.createElement('canvas')
+      canvas.width = 64
+      canvas.height = 64
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      ctx.beginPath()
+      ctx.arc(32, 32, 28, 0, Math.PI * 2)
+      ctx.fillStyle = color
+      ctx.fill()
+
+      const minutes = time.split(':')[0]
+      ctx.fillStyle = '#ffffff'
+      ctx.font = 'bold 26px system-ui, sans-serif'
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.fillText(minutes, 32, 33)
+
+      link.href = canvas.toDataURL('image/png')
+    }
+
+    watchEffect(() => {
+      _updateFavicon(formattedTime.value, isRunning.value, modeColor.value)
+    })
+  }
+
   /* ── Internal helpers ──────────────────────────────────── */
   function _clearInterval() {
     if (_intervalId !== null) {
@@ -227,6 +302,8 @@ export function usePomodoro() {
     progress,
     formattedTime,
     modeLabel,
+    modeColor,
+    modeIcon,
 
     // Actions
     startTimer,
