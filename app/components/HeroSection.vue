@@ -60,7 +60,7 @@ const socialLinks = [
                     :style="{ transitionDelay: '0.4s' }">
                     <UButton
 to="/CV.pdf" icon="i-lucide-download" color="neutral" variant="solid"
-                        size="lg" class="px-6 rounded-full shadow-sm" download>
+                        size="lg" class="px-6 rounded-full shadow-sm" download external>
                         Download CV
                     </UButton>
 
