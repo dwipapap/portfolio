@@ -73,7 +73,7 @@ const projects: Project[] = [
 
 ];
 
-const { addRef } = useScrollAnimation();
+useScrollAnimation();
 
 const isProjectsOpen = useState('projects-drawer-open', () => false);
 const projectsDirection = useState<'left' | 'bottom'>('projects-drawer-direction', () => 'bottom');
@@ -112,19 +112,23 @@ function handleWheel(e: WheelEvent) {
                 </p>
 
                 <!-- Big Button -->
-                <UButton icon="i-lucide-rocket" color="neutral" variant="solid" size="xl"
+                <UButton
+icon="i-lucide-rocket" color="neutral" variant="solid" size="xl"
                     class="px-6 rounded-full shadow-sm" @click="projectsDirection = 'bottom'; isProjectsOpen = true">
                     What I've made
                 </UButton>
             </div>
         </div>
 
-        <UDrawer v-model:open="isProjectsOpen" :direction="projectsDirection" :handle="true" title="My Projects"
+        <UDrawer
+v-model:open="isProjectsOpen" :direction="projectsDirection" :handle="true" title="My Projects"
             description="A collection of my recent work and experiments." class="z-100">
             <template #body>
-                <div class="flex flex-col md:flex-row gap-4 md:gap-5 h-full max-h-[75vh] md:max-h-[60vh] overflow-y-auto md:overflow-y-hidden md:overflow-x-auto p-4 md:px-6 md:py-4 snap-y md:snap-x snap-mandatory items-stretch overscroll-contain will-change-transform [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                <div
+class="flex flex-col md:flex-row gap-4 md:gap-5 h-full max-h-[75vh] md:max-h-[60vh] overflow-y-auto md:overflow-y-hidden md:overflow-x-auto p-4 md:px-6 md:py-4 snap-y md:snap-x snap-mandatory items-stretch overscroll-contain will-change-transform [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     @wheel="handleWheel">
-                    <div v-for="(project, index) in projects" :key="project.name"
+                    <div
+v-for="project in projects" :key="project.name"
                         class="flex flex-col shrink-0 w-full md:w-[320px] snap-start bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-4 md:p-4 border border-gray-100 dark:border-gray-800 h-full">
                         <!-- Image Column -->
                         <div class="relative group mb-4">
@@ -133,13 +137,15 @@ function handleWheel(e: WheelEvent) {
                                 class="relative rounded-xl overflow-hidden shadow-sm transition-transform duration-500">
                                 <div
                                     class="relative aspect-21/9 md:aspect-video w-full overflow-hidden bg-gray-200 dark:bg-gray-800">
-                                    <NuxtImg v-if="hasOpenedDrawer" :src="project.image" :alt="project.name"
+                                    <NuxtImg
+v-if="hasOpenedDrawer" :src="project.image" :alt="project.name"
                                         class="h-full w-full object-cover object-top" loading="lazy" />
                                     <div
                                         class="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-black/60 to-transparent pointer-events-none" />
 
                                     <div class="absolute bottom-2 left-2 flex flex-wrap gap-1">
-                                        <UBadge v-for="tech in project.techStack" :key="tech" color="neutral"
+                                        <UBadge
+v-for="tech in project.techStack" :key="tech" color="neutral"
                                             variant="solid" size="sm"
                                             class="md:backdrop-blur-md bg-black/60 text-white border-white/10">
                                             {{ tech }}
@@ -168,7 +174,8 @@ function handleWheel(e: WheelEvent) {
 
                             <!-- Action Link -->
                             <div class="mt-auto">
-                                <ULink :to="project.liveUrl || project.repoUrl" target="_blank"
+                                <ULink
+:to="project.liveUrl || project.repoUrl" target="_blank"
                                     inactive-class="text-gray-900 dark:text-white font-medium text-xs border-b border-gray-900 dark:border-white hover:opacity-70 transition-opacity pb-0.5 inline-block">
                                     see project
                                 </ULink>
