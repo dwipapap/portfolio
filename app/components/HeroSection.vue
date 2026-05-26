@@ -54,7 +54,7 @@ const socialLinks = [
                 <div :ref="addRef"
                     class="flex flex-wrap items-center justify-center md:justify-start gap-6 scroll-animate"
                     :style="{ transitionDelay: '0.4s' }">
-                    <UButton to="/CurriculumVitae.pdf" icon="i-lucide-download" color="neutral" variant="solid"
+                    <UButton to="/CV.pdf" icon="i-lucide-download" color="neutral" variant="solid"
                         size="lg" class="px-6 rounded-full shadow-sm" download>
                         Download CV
                     </UButton>
@@ -62,6 +62,7 @@ const socialLinks = [
                     <div class="flex items-center gap-4">
                         <UButton v-for="link in socialLinks" :key="link.label" :to="link.to" :icon="link.icon"
                             :aria-label="link.label" color="neutral" variant="ghost" size="lg" target="_blank"
+                            rel="noopener noreferrer"
                             class="rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" />
                     </div>
                 </div>
