@@ -9,6 +9,17 @@ interface Experience {
 
 const experiences: Experience[] = [
     {
+        company: "Genomic and High Performance Computing Researcher",
+        location: "Pekanbaru",
+        title: "Researcher",
+        dateRange: "Jan 2026 - April 2026",
+        responsibilities: [
+            "Implemented and analyzed the genome assembly pipeline for the Acacia crassicarpa species utilizing the Mahameru High Performance Computing (HPC) infrastructure.",
+            "Managed and optimized large-scale computational job scheduling via the SLURM Job Scheduler to ensure efficient resource allocation on the HPC cluster.",
+            "Executed advanced bioinformatics workflows, specifically utilizing tools such as NextDenovo for sequence assembly and BUSCO for genomic quality assessment within a high-performance environment.",
+        ],
+    },
+    {
         company: "ITTR English Course",
         location: "Pekanbaru",
         title: "Frontend Developer",
