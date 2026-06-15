@@ -69,8 +69,16 @@ const projects: Project[] = [
         year: "2026",
         techStack: ["Excel", "VBA"],
         repoUrl: "",
-    }
-
+  },
+  {
+        name: "Undangan Nikah",
+        subtitle: "Undangan Nikah pakai NextJS",
+        description: "Website undangan nikah menggunakan NextJS dan juga Supabase, dengan fitur admin untuk mengelola undangan.",
+        image: "/projects/portoundangan.png",
+        year: "2026",
+        techStack: ["NextJS", "Supabase"],
+        repoUrl: "https://github.com/dwipapap/undangan-nikah",
+    },
 ];
 
 useScrollAnimation();
