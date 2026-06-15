@@ -10,7 +10,7 @@
     />
     <AppHeader />
     <NuxtPage />
-    <FloatingActionButton />
+    <ClientOnly><FloatingActionButton /></ClientOnly>
     <PomodoroSlideover />
     <PomodoroIsland />
   </UApp>
