@@ -125,31 +125,30 @@ v-else icon="i-heroicons-plus" size="xl" color="primary" variant="solid"
           </template>
 
           <template #content>
-            <div class="p-2 w-64 sm:w-72">
-              <div class="flex flex-col gap-1">
+            <div class="p-3 w-64">
+              <div class="grid grid-cols-2 gap-3">
                 <button
-v-for="widget in widgets" :key="widget.id"
-                  class="group relative flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-left transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/60 cursor-pointer"
+                  v-for="widget in widgets" :key="widget.id"
+                  class="group flex flex-col items-center justify-center p-3 rounded-2xl text-center transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800/60 cursor-pointer"
                   @click="widget.action">
                   <div
-                    class="flex items-center justify-center w-9 h-9 rounded-xl transition-all duration-200 group-hover:scale-110"
+                    class="flex items-center justify-center w-14 h-14 rounded-2xl transition-all duration-200 group-hover:scale-105 shadow-sm relative"
                     :class="widget.iconClass">
-                    <UIcon :name="widget.icon" class="w-5 h-5" />
-                  </div>
-                  <div class="flex flex-col min-w-0 flex-1">
-                    <span class="text-sm font-medium text-gray-900 dark:text-white">
-                      {{ widget.label }}
-                    </span>
-                    <span class="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 truncate">
-                      <span
-v-if="widget.id === 'pomodoro' && isRunning"
-                        class="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
-                      {{ widget.description }}
+                    <UIcon :name="widget.icon" class="w-7 h-7" />
+                    <span
+                      v-if="widget.id === 'pomodoro' && isRunning"
+                      class="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border border-white dark:border-gray-900"></span>
                     </span>
                   </div>
-                  <UIcon
-name="i-lucide-chevron-right"
-                    class="w-4 h-4 text-gray-400 dark:text-gray-500 transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
+                  <span class="text-xs font-semibold text-gray-900 dark:text-white mt-2 leading-tight">
+                    {{ widget.label }}
+                  </span>
+                  <span
+                    class="text-[10px] text-gray-500 dark:text-gray-400 mt-1 leading-none">
+                    {{ widget.id === 'pomodoro' && isRunning ? formattedTime : widget.description }}
+                  </span>
                 </button>
               </div>
             </div>
