@@ -16,7 +16,7 @@ const projects: Project[] = [
         subtitle: "Learning Management System",
         description:
             "A comprehensive Learning Management System designed to streamline educational processes. The platform features distinct portals for students, lecturers, and administrators, facilitating seamless communication and resource management.",
-        image: "/projects/ittrenglish.png",
+        image: "/projects/lms.webp",
         year: "2025",
         techStack: ["Vue.js", "Tailwind"],
         repoUrl: "https://github.com/dwipapap/cognivus-frontend",
