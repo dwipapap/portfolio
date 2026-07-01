@@ -86,7 +86,7 @@ const widgets = computed<Widget[]>(() => [
     id: 'manga',
     label: 'Manga Recs',
     icon: 'i-lucide-book-open',
-    description: 'Coming soon',
+    description: 'Curated reads',
     iconClass: 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30',
     action: () => router.push('/manga'),
   },

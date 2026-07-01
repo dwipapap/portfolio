@@ -10,7 +10,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <main>
+  <main class="md:pl-24 2xl:pl-0">
     <HeroSection />
     <AboutSection />
     <WhatIDoSection />

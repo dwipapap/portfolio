@@ -68,7 +68,8 @@ const filteredMangas = computed(() => {
 </script>
 
 <template>
-  <main class="min-h-[85vh] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <main class="md:pl-24 2xl:pl-0">
+    <div class="min-h-[85vh] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <div class="text-center mb-12">
       <h1 class="text-[clamp(2rem,4vw,3.5rem)] font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mb-6">
         Manga Recommendations
@@ -256,6 +257,7 @@ const filteredMangas = computed(() => {
       >
         Back to Home
       </UButton>
+    </div>
     </div>
   </main>
 </template>

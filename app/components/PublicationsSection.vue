@@ -50,12 +50,8 @@ const { addRef } = useScrollAnimation();
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
                 :ref="addRef"
-                class="scroll-animate mb-10 max-w-2xl"
+                class="scroll-animate mx-auto mb-10 max-w-2xl text-center"
             >
-                <div class="flex items-center gap-3 text-purple-700 dark:text-purple-400 mb-3">
-                    <UIcon name="i-lucide-scroll-text" class="size-5" />
-                    <span class="text-sm font-semibold">Published Research</span>
-                </div>
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
                     Publications
                 </h2>
