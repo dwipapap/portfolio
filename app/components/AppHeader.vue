@@ -20,6 +20,7 @@ const navItems = [
   { id: 'services', icon: 'i-lucide-layers', label: 'Services', href: '#services' },
   { id: 'skills', icon: 'i-lucide-wrench', label: 'Skills', href: '#skills' },
   { id: 'experience', icon: 'i-lucide-briefcase', label: 'Experience', href: '#experience' },
+  { id: 'publications', icon: 'i-lucide-scroll-text', label: 'Publications', href: '#publications' },
   { id: 'projects', icon: 'i-lucide-folder', label: 'Projects', href: '#projects' },
 ]
 

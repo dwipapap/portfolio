@@ -16,6 +16,7 @@ useSeoMeta({
     <WhatIDoSection />
     <SkillsSection />
     <ExperiencesSection />
+    <PublicationsSection />
     <ProjectsSection />
   </main>
 </template>

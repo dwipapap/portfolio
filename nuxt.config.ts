@@ -19,6 +19,9 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@vercel/analytics'
   ],
+  ui: {
+    fonts: false
+  },
   vite: {
     optimizeDeps: {
       exclude: ['@nuxt/hints', '#shared/hints-config']
